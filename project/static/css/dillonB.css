@@ -1,0 +1,133 @@
+/* Part 1. Stylesheet borrowed from first project (blog) */
+body { 
+	background-color: #ccFFcc;
+}
+header, footer, .container {
+	border-style: solid;
+	border-width: 1px;
+	border-color: green;
+}
+header {
+	background-color: #bbEEbb;
+	padding: 5px;
+	padding-left: 20px;
+}
+h1 {
+	color: #004400;
+	font-size: 200%;
+	font-family: Cambria,Courier;
+}
+h2 {
+	color: #004499;
+	font-family: Verdana, Arial;
+}
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	box-shadow: 5px 5px 5px black; 
+	border-style: solid;
+	border-width: 2px;
+	border-color: green;
+}
+.container { 
+	background-color: #eeFFee;
+	margin: 1em;
+	padding: 10px; 
+}
+.flash, .error {
+	background-color: #990000;
+	color: white;
+	padding: 0.5em;
+}
+footer {
+	background-color: #66BB99;
+	color: navy;
+	font-family: Verdana, Arial;
+	text-align: center;
+	font-size: 80%;
+	padding: 5px;
+}
+
+/* Part 2. Specific new styles for Flask Task project */
+.page {
+	margin: 2em auto;
+	width: 50em;
+	border: 5px solid #ccc;
+	padding: 0.8em;
+	background: white;
+}
+.entries {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.entries li {
+	margin: 0.8em 1.2em;
+}
+.entries li h2 {
+	margin-left: -1em;
+}
+.add-task {
+	font-size: 0.9em;
+	border-bottom: 1px solid #ccc;
+}
+.add-task dl {
+	font-weight: bold;
+}
+.metanav {
+	text-align: right;
+	font-size: 0.8em;
+	padding: 0.3em;
+	margin-bottom: 1em;
+	background: #fafafa;
+}
+.datagrid table {
+	border-collapse: collapse;
+	text-align: left;
+	width: 100%;
+}
+.datagrid {
+	background: #fff;
+	overflow: hidden;
+	border: 1px solid #000000;
+	border-radius: 3px;
+}
+.datagrid table td, .datagrid table th {
+	padding: 3px 10px;
+}
+.datagrid table thead th {
+	background-color:#000000;
+	color:#FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+}
+.datagrid table thead th:first-child {
+	border: none;
+}
+.datagrid table tbody td {
+	color: #000000;
+	border-left: 1px solid #E1EEF4;
+	font-size: 12px;
+	font-weight: normal;
+}
+.datagrid table tbody .alt td {
+	background: #E1EEF4;
+	color: #000000;
+}
+.datagrid table tbody td:first-child {
+	border-left: none;
+}
+.datagrid table tbody tr:last-child td {
+	border-bottom: none;
+}
+.button {
+	background-color:#000;
+	display:inline-block;
+	color:#ffffff;
+	font-size:13px;
+	padding:3px 12px;
+	margin: 0;
+	text-decoration:none;
+	position:relative;
+}
