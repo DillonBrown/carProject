@@ -68,11 +68,11 @@ footer {
 .entries li h2 {
 	margin-left: -1em;
 }
-.add-task {
+.add-car {
 	font-size: 0.9em;
 	border-bottom: 1px solid #ccc;
 }
-.add-task dl {
+.add-car dl {
 	font-weight: bold;
 }
 .metanav {

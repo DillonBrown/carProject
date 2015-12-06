@@ -1,0 +1,68 @@
+{% extends "_base.html" %}
+{% block content %}
+
+<h1>Welcome to da Garge</h1>
+<a href="/logout">Logout</a>
+<div class="add-car">
+	<h3>Add a new car:</h3>
+	<table>
+		<tr>
+			<form action="{{ url_for('new_car') }}" method="post">
+				<td>
+					<label>Car Make:</label>
+					<input name="make" type="text">		
+				</td>
+				<td>
+					<label>Car Model:</label>
+					<input name="model" type="text">		
+				</td>
+				<td>
+					<label>Year:</label>
+					<input name="year" type="number" width="120px"> <!--shady line int-->
+				</td>
+				<td>
+					<label>Color:</label>
+					<input name="color" type="text" width="100px">
+				</td>
+				<td>
+					&nbsp;
+					&nbsp;
+					<input class="button" type="submit" value="Save">
+				</td>
+			</form>
+		</tr>
+	</table>
+</div>
+
+<div class="entries">
+	<br> <br>
+	<h2>The Cars are here:</h2>
+	<div class="datagrid">
+		<table>
+			<thead>
+				<tr>
+					<th width="300px"><strong>Car Make</strong></th>
+					<th width="100px"><strong>Car Model</strong></th>
+					<th width="100px"><strong>Year</strong></th>
+					<th width="50px"><strong>Color</strong></th>
+					<th><strong>Actions</strong></th>
+				</tr>
+			</thead>
+			{% for car in car_garage %}
+			<tr>
+				<td width="300px">{{ car.make }}</td>
+				<td width="100px">{{ car.model }}</td>
+				<td width="100px">{{ car.year }}</td>
+				<td width="50px">{{ car.color }}</td>
+				<td>
+					<a href="{{ url_for('delete_entry', car_id=car.car_id) }}">Delete</a> 
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>	
+	<br><br>
+</div>
+
+
+{% endblock %}
