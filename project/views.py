@@ -50,7 +50,7 @@ def cars():
 	g.db.close()
 	return render_template(
 		'cars.html',
-		form=AddTaskForm(request.form),
+		form=AddCarForm(request.form),
 		car_garage=car_garage
 	)
 
