@@ -24,6 +24,12 @@
 						<option value="2">Brake Pads Changed</option>
 						<option value="3">Tires Rotated</option>
 						<option value="4">Headlight Fluid Changed</option>
+						<option value="5">Timing Belt Changed</option>
+						<option value="6">Battery Charged</option>
+						<option value="7">Coolant Cooled</option>
+						<option value="8">Spark Plug Voltage Checked</option>
+						<option value="9">Air Filter Filtered</option>
+						<option value="10">Muffler Muffled</option>
 					</select>
 				</td>
 				<td>
@@ -45,13 +51,14 @@
 				<tr>
 					<th width="100px"><strong>Car_ID</strong></th>
 					<th width="100px"><strong>Car Odometer</strong></th>
-					<th width="100px"><strong>Date</strong></th>
+					<th width="100px"><strong>Maintenance Item</strong></th>
 				</tr>
 			</thead>
 			{% for item in maint_items %}
 			<tr>
 				<td width="100px">{{ item.car_id }}</td>
 				<td width="100px">{{ item.odometer }}</td>
+				<td width="100px">{{ item.main_item }}</td>
 			</tr>
 			{% endfor %}
 		</table>

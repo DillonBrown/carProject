@@ -8,10 +8,10 @@ with sqlite3.connect(DATABASE_PATH) as connection:
 	c.execute("""CREATE TABLE cars(car_id INTEGER PRIMARY KEY AUTOINCREMENT,
 		make TEXT NOT NULL, model TEXT NOT NULL, 
 		year INTEGER NOT NULL, color TEXT NOT NULL,
-		odometer INTEGER NOT NULL)""")
+		odometer INTEGER NOT NULL, maint_item TEXT NOT NULL)""")
 
-	c.execute('INSERT INTO cars(make, model, year, color, odometer)'
-		'VALUES("Dodge", "Stratus", 2004, "silver", 108000)')
+	c.execute('INSERT INTO cars(make, model, year, color, odometer, maint_item)'
+		'VALUES("Dodge", "Stratus", 2004, "silver", 108000, " ")')
 
-	c.execute('INSERT INTO cars(make, model, year, color, odometer)'
-		'VALUES("Ferrari", "Spyder", 2016, "red", 4200)')
+	c.execute('INSERT INTO cars(make, model, year, color, odometer, maint_item)'
+		'VALUES("Ferrari", "Spyder", 2016, "red", 4200, " ")')
