@@ -44,9 +44,9 @@ def login():
 def cars():
 	g.db = connect_db()
 	cur = g.db.execute(
-		'select make, model, year, color, car_id from cars')
+		'select make, model, year, color, odometer, car_id from cars')# add ing stuff might mess up
 	car_garage = [ dict(make=row[0], model=row[1], year=row[2], color=row[3], 
-		car_id=row[4]) for row in cur.fetchall() ]
+		odometer=row[4], car_id=row[5]) for row in cur.fetchall() ]
 	g.db.close()
 	return render_template(
 		'cars.html',
@@ -66,18 +66,40 @@ def new_car():
 		flash("All fields are required. Please try again.")
 		return redirect(url_for('cars'))
 	else:
-		g.db.execute('insert into cars (make, model, year, color) \
-			values (?, ?, ?, ?)',
+		g.db.execute('insert into cars (make, model, year, color,\
+		 odometer) \
+			values (?, ?, ?, ?, ?)',
 			[	request.form['make'],
 				request.form['model'],
 				request.form['year'],
-				request.form['color']
+				request.form['color'],
+				0
 			]
 		)
 		g.db.commit()
 		g.db.close()
 		flash('New entry was successfully posted. Thanks.')
 		return redirect(url_for('cars'))
+
+@app.route('/add/', methods=['POST'])
+@login_required
+def new_detail():
+	g.db = connect_db()
+	#car_id=request.form['car_id']
+	odometer=request.form['odometer']
+	#car_detail= request.form['car_detail']
+	if not car_detail or not car_id or not odometer:
+		flash("All fields are required. Please try again.")
+		return redirect(url_for('details'))
+	else:
+		g.db.execute('update cars set odometer = ? where car_id = 1 (odometer) \
+			values (?)',
+			[	request.form['odometer'] ]
+		)
+		g.db.commit()
+		g.db.close()
+		flash('New entry was successfully posted. Thanks.')
+		return redirect(url_for('details(1)'))
 
 @app.route('/delete/<int:car_id>/')
 @login_required
@@ -88,3 +110,18 @@ def delete_entry(car_id):
 	g.db.close()
 	flash('The car was destroyed.')
 	return redirect(url_for('cars'))
+
+@app.route('/details/<int:car_id>/')
+@login_required
+def car_detail(car_id):
+	g.db = connect_db()
+	cur = g.db.execute(
+		'select make, model, year, color, odometer, car_id from cars')# add ing stuff might mess up
+	maint_items = [ dict(make=row[0], model=row[1], year=row[2], color=row[3], 
+		odometer=row[4], car_id=row[5]) for row in cur.fetchall() ]
+	g.db.close()
+	return render_template(
+		'details.html',
+		form=AddCarForm(request.form),
+		maint_items=maint_items
+		)

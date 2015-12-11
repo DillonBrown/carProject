@@ -1,0 +1,61 @@
+{% extends "_base.html" %}
+{% block content %}
+
+<h1>Welcome to da Garage Detailz</h1>
+<a href="/logout">Logout</a> &nbsp;&nbsp; <a href="/cars">Cars</a>
+
+<div class="add-car">
+	<h3>Add a new Maintenace Item:</h3>
+	<table>
+		<tr>
+			<form action="{{ url_for('new_detail') }}" method="post">
+				<td>
+					<label>Car_ID</label>
+					<input name="name" type="number">		
+				</td>
+				<td>
+					<label>Car Odometer</label>
+					<input name="odometer" type="number" width="120px">
+				</td>
+				<td>
+					<label>Maintenance Item</label>
+					<select name="maint_item" width="100px">
+						<option value="1">Oil Change</option>
+						<option value="2">Brake Pads Changed</option>
+						<option value="3">Tires Rotated</option>
+						<option value="4">Headlight Fluid Changed</option>
+					</select>
+				</td>
+				<td>
+					&nbsp;
+					&nbsp;
+					<input class="button" type="submit" value="Save">
+				</td>
+			</form>
+		</tr>
+	</table>
+</div>
+
+<div class = "carDetails">
+	<br>
+	<h2>The Car Detailz are heer:</h2>
+	<div class="datagrid">
+		<table>
+			<thead>
+				<tr>
+					<th width="100px"><strong>Car_ID</strong></th>
+					<th width="100px"><strong>Car Odometer</strong></th>
+					<th width="100px"><strong>Date</strong></th>
+				</tr>
+			</thead>
+			{% for item in maint_items %}
+			<tr>
+				<td width="100px">{{ item.car_id }}</td>
+				<td width="100px">{{ item.odometer }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+
+{% endblock %}

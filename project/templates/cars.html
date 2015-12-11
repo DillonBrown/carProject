@@ -18,11 +18,11 @@
 				</td>
 				<td>
 					<label>Year:</label>
-					<input name="year" type="number" width="120px"> <!--shady line int-->
+					<input name="year" type="number"> 
 				</td>
 				<td>
 					<label>Color:</label>
-					<input name="color" type="text" width="100px">
+					<input name="color" type="text">
 				</td>
 				<td>
 					&nbsp;
@@ -41,11 +41,12 @@
 		<table>
 			<thead>
 				<tr>
-					<th width="300px"><strong>Car Make</strong></th>
-					<th width="100px"><strong>Car Model</strong></th>
+					<th width="200px"><strong>Car Make</strong></th>
+					<th width="200px"><strong>Car Model</strong></th>
 					<th width="100px"><strong>Year</strong></th>
-					<th width="50px"><strong>Color</strong></th>
+					<th width="100px"><strong>Color</strong></th>
 					<th><strong>Actions</strong></th>
+					<th><strong>Details</strong></th>
 				</tr>
 			</thead>
 			{% for car in car_garage %}
@@ -55,7 +56,10 @@
 				<td width="100px">{{ car.year }}</td>
 				<td width="50px">{{ car.color }}</td>
 				<td>
-					<a href="{{ url_for('delete_entry', car_id=car.car_id) }}">Delete</a> 
+					<a href="{{ url_for('delete_entry', car_id=car.car_id) }}">Delete</a>
+				</td>
+				<td>
+					<a href="{{ url_for('car_detail', car_id=car.car_id) }}">Details</a> 
 				</td>
 			</tr>
 			{% endfor %}

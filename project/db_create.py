@@ -7,11 +7,11 @@ with sqlite3.connect(DATABASE_PATH) as connection:
 
 	c.execute("""CREATE TABLE cars(car_id INTEGER PRIMARY KEY AUTOINCREMENT,
 		make TEXT NOT NULL, model TEXT NOT NULL, 
-		year INTEGER NOT NULL,
-		color TEXT NOT NULL)""")
+		year INTEGER NOT NULL, color TEXT NOT NULL,
+		odometer INTEGER NOT NULL)""")
 
-	c.execute('INSERT INTO cars(make, model, year, color)'
-		'VALUES("Dodge", "Stratus", 2004, "silver")')
+	c.execute('INSERT INTO cars(make, model, year, color, odometer)'
+		'VALUES("Dodge", "Stratus", 2004, "silver", 108000)')
 
-	c.execute('INSERT INTO cars(make, model, year, color)'
-		'VALUES("Ferrari", "Spyder", 2016, "red")')
+	c.execute('INSERT INTO cars(make, model, year, color, odometer)'
+		'VALUES("Ferrari", "Spyder", 2016, "red", 4200)')

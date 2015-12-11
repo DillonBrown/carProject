@@ -1,16 +1,17 @@
 /* Part 1. Stylesheet borrowed from first project (blog) */
 body { 
-	background-color: #ccFFcc;
+	/*background-color: #ccFFcc;*/
+	background-color: #6699ff;
 }
 header, footer, .container {
 	border-style: solid;
-	border-width: 1px;
-	border-color: green;
+	border-width: 5px;
+	border-color: gray;
 }
 header {
-	background-color: #bbEEbb;
+	background-color: #9cabc9;
 	padding: 5px;
-	padding-left: 20px;
+	padding-left: 40px;
 }
 h1 {
 	color: #004400;
@@ -18,7 +19,7 @@ h1 {
 	font-family: Cambria,Courier;
 }
 h2 {
-	color: #004499;
+	color: #8c66ff;
 	font-family: Verdana, Arial;
 }
 #wrapper {
@@ -36,8 +37,8 @@ h2 {
 	padding: 10px; 
 }
 .flash, .error {
-	background-color: #990000;
-	color: white;
+	background-color: #66d9ff;
+	color: black;
 	padding: 0.5em;
 }
 footer {
@@ -68,6 +69,19 @@ footer {
 .entries li h2 {
 	margin-left: -1em;
 }
+
+.carDetails {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.carDetails li {
+	margin: 0.8em 1.2em;
+}
+.carDetails li h2 {
+	margin-left: -1em;
+}
+
 .add-car {
 	font-size: 0.9em;
 	border-bottom: 1px solid #ccc;
